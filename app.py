@@ -25,7 +25,7 @@ st.set_page_config(
     page_icon = "🛍"
 )
 
-st.title('Asto Apps Review Sentiment Analysis')
+st.title('Astro Apps Review Sentiment Analysis')
 
 tab1,tab2,tab3,tab4 = st.tabs(['Astro Apps Information','Sentiment Analysis Model Information','Single Prediction','multi Prediction'])
 with tab1:
@@ -58,7 +58,6 @@ with tab2:
     st.write('Dari 74 ulasan yang termasuk dalam data uji, model ini memprediksi bahwa 2 ulasan memiliki sentimen negatif dan 72 ulasan memiliki sentimen positif. Deskripsi ini menggambarkan kemampuan model dalam mengkategorikan sentimen ulasan pengguna dengan cukup baik.')
 with tab3:
     st.title('Single-Predict Model Demo')
-    st.write(f"**model accuracy** : :green[**{acc}**]%")
     coms = st.text_input('Enter your review about the Astro app')
 
     submit = st.button('Predict')
@@ -83,7 +82,6 @@ with tab3:
             st.title("🤬 :red[**Sentimen review anda negatif**]")
 with tab4:
     st.title('Multi-Predict Model Demo')
-    st.write(f"**model accuracy** : :green[**{acc}**]%")
     sample_csv = df.iloc[:5, :-1].to_csv(index=False).encode('utf-8')
 
     st.write("")
