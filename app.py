@@ -35,7 +35,7 @@ with st.sidebar:
         icons = ['basket-fill','box-fill','input-cursor-text','table'],
         menu_icon ='segmented-nav',
         default_index = 0,
-        style={
+        styles={
             "nav-link-selected":{"background-color":"#260b7d"},
         },
     )
