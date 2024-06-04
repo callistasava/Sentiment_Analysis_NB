@@ -1,5 +1,6 @@
 
 import streamlit as st
+from streamlit_option_menu import option_menu
 import pickle
 import pandas as pd
 import numpy as np
@@ -25,10 +26,15 @@ st.set_page_config(
     page_icon = "🛍"
 )
 
-st.title('Astro Apps Review Sentiment Analysis')
+#st.title('Astro Apps Review Sentiment Analysis')
 
-tab1,tab2,tab3,tab4 = st.tabs(['Astro Apps Information','Sentiment Analysis Model Information','Single Prediction','multi Prediction'])
-with tab1:
+with st.sidebar:
+    selected = option_menu(
+        menu_title = "Navigation Menu",
+        option = ['Astro Apps Information','Sentiment Analysis Model Information','Single Prediction','Multi Prediction'],
+    )
+
+if selected == 'Astro Apps Information':
     st.title('Astro Apps')
     st.image('astro.png')
     st.write('')
@@ -40,7 +46,7 @@ with tab1:
     for i in lst:
         s += "- " + i + "\n"
     st.markdown(s)
-with tab2:
+if selected == 'Sentiment Analysis Model Information':
     st.title('Reviews Sentiment Anaylsis Model')
     st.write('')
     st.write('Model ini dirancang untuk menganalisis sentimen dari ulasan pengguna aplikasi Astro. Dengan menggunakan model ini, pengguna dapat memahami apakah ulasan yang diberikan oleh pengguna lain bersifat positif atau negatif. Model analisis sentimen ini dibuat menggunakan algoritma Multinomial Naive Bayes, yang merupakan salah satu metode yang efektif dalam pengolahan teks dan analisis sentimen.')
@@ -56,7 +62,7 @@ with tab2:
     col2.image('pie_astro.png', width=316)
     st.write('')
     st.write('Dari 74 ulasan yang termasuk dalam data uji, model ini memprediksi bahwa 2 ulasan memiliki sentimen negatif dan 72 ulasan memiliki sentimen positif. Deskripsi ini menggambarkan kemampuan model dalam mengkategorikan sentimen ulasan pengguna dengan cukup baik.')
-with tab3:
+if selected == 'Single Prediction':
     st.title('Single-Predict Model Demo')
     coms = st.text_input('Enter your review about the Astro app')
 
@@ -80,7 +86,7 @@ with tab3:
             st.title("😆 :green[**Sentimen review anda positif**]")
         else:
             st.title("🤬 :red[**Sentimen review anda negatif**]")
-with tab4:
+if selected == 'Multi Prediction':
     st.title('Multi-Predict Model Demo')
     sample_csv = df.iloc[:5, :-1].to_csv(index=False).encode('utf-8')
 
@@ -130,3 +136,12 @@ with tab4:
             st.dataframe(uploaded_result)
         with col2:
             st.dataframe(uploaded_df)
+# tab1,tab2,tab3,tab4 = st.tabs(['Astro Apps Information','Sentiment Analysis Model Information','Single Prediction','multi Prediction'])
+# with tab1:
+    
+# with tab2:
+    
+# with tab3:
+    
+# with tab4:
+    
