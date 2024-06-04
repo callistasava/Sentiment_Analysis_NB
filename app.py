@@ -46,7 +46,7 @@ with tab2:
     st.write('Model ini dirancang untuk menganalisis sentimen dari ulasan pengguna aplikasi Astro. Dengan menggunakan model ini, pengguna dapat memahami apakah ulasan yang diberikan oleh pengguna lain bersifat positif atau negatif. Model analisis sentimen ini dibuat menggunakan algoritma Multinomial Naive Bayes, yang merupakan salah satu metode yang efektif dalam pengolahan teks dan analisis sentimen.')
     st.write('')
     st.write('**DataSet:**')
-    st.write('Dataset yang digunakan untuk melatih model ini adalah data ulasan aplikasi Access by KAI yang diambil langsung dari Google Playstore. Data ini mencakup berbagai ulasan dari pengguna, yang kemudian diproses dan dianalisis untuk membangun model yang akurat dan andal.')
+    st.write('Dataset yang digunakan untuk melatih model ini adalah data ulasan aplikasi Astro yang diambil langsung dari Google Playstore. Data ini mencakup berbagai ulasan dari pengguna, yang kemudian diproses dan dianalisis untuk membangun model yang akurat dan andal.')
     st.image('distribusi_label_astro.png', caption='Distribusi Jumlah Ulasan Sesuai Sentimen')
     st.write('Pada Gambar di atas memperlihatkan dataset yang berisi ulasan aplikasi Astro dari user sejumlah 733 ulasan terbagi menjadi 81 ulasan negatif dan 652 ulasan positif. Data ini nantinya akan dipisah menjadi data latih dan data uji. Pada penelitian ini dataset akan dipecah dalam bentuk 90% data latih dan 10% data uji.')
     st.write('')
