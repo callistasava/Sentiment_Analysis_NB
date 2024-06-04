@@ -32,6 +32,12 @@ with st.sidebar:
     selected = option_menu(
         menu_title = "Navigation Menu",
         options = ['Astro Apps Information','Sentiment Analysis Model Information','Single Prediction','Multi Prediction'],
+        icons = ['basket-fill','box-fill','input-cursor-text','table'],
+        menu_icon ='segmented-nav',
+        default_index = 0,
+        style={
+            "nav-link-selected":{"background-color":"#260b7d"},
+        },
     )
 
 if selected == 'Astro Apps Information':
@@ -63,6 +69,8 @@ if selected == 'Sentiment Analysis Model Information':
     st.write('')
     st.write('Dari 74 ulasan yang termasuk dalam data uji, model ini memprediksi bahwa 2 ulasan memiliki sentimen negatif dan 72 ulasan memiliki sentimen positif. Deskripsi ini menggambarkan kemampuan model dalam mengkategorikan sentimen ulasan pengguna dengan cukup baik.')
 if selected == 'Single Prediction':
+    st.title('Astro Apps Review Sentiment Analysis')
+    st.markdown("""---""")
     st.title('Single-Predict Model Demo')
     coms = st.text_input('Enter your review about the Astro app')
 
@@ -87,6 +95,8 @@ if selected == 'Single Prediction':
         else:
             st.title("🤬 :red[**Sentimen review anda negatif**]")
 if selected == 'Multi Prediction':
+    st.title('Astro Apps Review Sentiment Analysis')
+    st.markdown("""---""")
     st.title('Multi-Predict Model Demo')
     sample_csv = df.iloc[:5, :-1].to_csv(index=False).encode('utf-8')
 
