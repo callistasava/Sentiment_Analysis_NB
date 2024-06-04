@@ -31,7 +31,7 @@ st.set_page_config(
 with st.sidebar:
     selected = option_menu(
         menu_title = "Navigation Menu",
-        option = ['Astro Apps Information','Sentiment Analysis Model Information','Single Prediction','Multi Prediction'],
+        options = ['Astro Apps Information','Sentiment Analysis Model Information','Single Prediction','Multi Prediction'],
     )
 
 if selected == 'Astro Apps Information':
