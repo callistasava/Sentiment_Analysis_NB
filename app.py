@@ -31,7 +31,7 @@ st.set_page_config(
 with st.sidebar:
     selected = option_menu(
         menu_title = "Navigation Menu",
-        options = ['Astro Apps Information','Sentiment Analysis Model Information','Single Prediction','Multi Prediction'],
+        options = ['Astro Apps Information','Sentiment Analysis Model Information','Single Prediction'],
         icons = ['basket-fill','box-fill','input-cursor-text','table'],
         menu_icon ='segmented-nav',
         default_index = 0,
@@ -94,64 +94,3 @@ if selected == 'Single Prediction':
             st.title("😆 :green[**Sentimen review anda positif**]")
         else:
             st.title("🤬 :red[**Sentimen review anda negatif**]")
-if selected == 'Multi Prediction':
-    st.title('Astro Apps Review Sentiment Analysis')
-    st.markdown("""---""")
-    st.title('Multi-Predict Model Demo')
-    sample_csv = df.iloc[:5, :-1].to_csv(index=False).encode('utf-8')
-
-    st.write("")
-    st.download_button("Download CSV Example", data=sample_csv, file_name='sample_review.csv', mime='text/csv')
-
-    st.write("")
-    st.write("")
-    file_uploaded = st.file_uploader("Upload a CSV file", type='csv')
-
-    if file_uploaded:
-        uploaded_df = pd.read_csv(file_uploaded)
-        conv_df = vectorizer.transform(uploaded_df['clean_review'].values.astype('U')).toarray()
-        prediction_arr = model.predict(conv_df)
-
-        bar = st.progress(0)
-        status_text = st.empty()
-
-        for i in range(1, 70):
-            status_text.text(f"{i}% complete")
-            bar.progress(i)
-            time.sleep(0.01)
-
-        result_arr = []
-
-        for prediction in prediction_arr:
-            if prediction == 1:
-                result = "Sentimen positif"
-            else:
-                result = "Sentimen Negatif"
-            result_arr.append(result)
-
-        uploaded_result = pd.DataFrame({'Prediction Result': result_arr})
-
-        for i in range(70, 101):
-            status_text.text(f"{i}% complete")
-            bar.progress(i)
-            time.sleep(0.01)
-            if i == 100:
-                time.sleep(1)
-                status_text.empty()
-                bar.empty()
-
-        col1, col2 = st.columns([1, 2])
-
-        with col1:
-            st.dataframe(uploaded_result)
-        with col2:
-            st.dataframe(uploaded_df)
-# tab1,tab2,tab3,tab4 = st.tabs(['Astro Apps Information','Sentiment Analysis Model Information','Single Prediction','multi Prediction'])
-# with tab1:
-    
-# with tab2:
-    
-# with tab3:
-    
-# with tab4:
-    
