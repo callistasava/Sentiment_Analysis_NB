@@ -63,8 +63,7 @@ if selected == 'Sentiment Analysis Model Information':
     st.write('Pada Gambar di atas memperlihatkan dataset yang berisi ulasan aplikasi Astro dari user sejumlah 733 ulasan terbagi menjadi 81 ulasan negatif dan 652 ulasan positif. Data ini nantinya akan dipisah menjadi data latih dan data uji.')
     st.write('')
     st.write('**Hasil Uji:**')
-    col1, col2 = st.columns(2)
-    col1.image('cf-astro.png', use_column_width=True)
+    st.image('cf-astro.png', use_column_width=True)
 if selected == 'Single Prediction':
     st.title('Astro Apps Review Sentiment Analysis')
     st.markdown("""---""")
